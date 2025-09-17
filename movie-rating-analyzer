@@ -1,0 +1,32 @@
+import pandas as pd
+df=pd.read_csv("C:\\Users\\DELL\\Downloads\\movies_dataset.csv")
+movie_name=input("Enter the movie name:")
+result=df[df["Title"].str.contains(movie_name,case=False,na=False)]
+if not result.empty:
+    print(result)
+else:
+    print("Movie not Found")
+
+genre_type=input("Enter the Movie Genre:")
+ans=df[df["Genre"].str.contains(genre_type,case=False,na=False)] 
+if not ans.empty:
+    print(ans)
+else:
+    print("movie not Found")
+
+
+year = input("Enter the year: ")
+sol = df.loc[df["Year"] == int(year)]
+if not sol.empty:
+    print(sol)
+else:
+    print("Movie not Found")
+
+low = float(input("Enter minimum rating: "))
+high = float(input("Enter maximum rating: "))
+sol = df.loc[(df["Rating"] >= low) & (df["Rating"] <= high)]
+if not sol.empty:
+    print(sol)
+else:
+    print("No movies found in this range")
+
