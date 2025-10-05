@@ -1,45 +1,45 @@
 import pandas as pd
 df=pd.read_csv("C:\\Users\\DELL\\Downloads\\movies_dataset.csv")
 def sam():
-    movie_name=input("Enter the movie name:")
+    movie_name=input("🎬 Enter the movie name:")
     result=df[df["Title"].str.contains(movie_name,case=False,na=False)]
     if not result.empty:
-     print(result)
+     print("✅ Movie Found:\n",result)
     else:
-     print("Movie not Found")
+     print("❌ Movie not Found")
 
 
 def sam2():
- genre_type=input("Enter the Movie Genre:")
+ genre_type=input("🎞️  Enter the Movie Genre:")
  ans=df[df["Genre"].str.contains(genre_type,case=False,na=False)] 
  if not ans.empty:
-    print(ans)
+    print("✅ Movie Found:\n",ans)
  else:
-    print("movie not Found")
+    print("❌ movie not Found")
 
 
 def sam3():
- year = input("Enter the year: ")
+ year = input("📅 Enter the year: ")
  sol = df.loc[df["Year"] == int(year)]
  if not sol.empty:
-    print(sol)
+    print("✅ Movie Found:\n",sol)
  else:
-    print("Movie not Found")
+    print("❌ Movie not Found")
 
 
 def sam4():
- low = float(input("Enter minimum rating: "))
- high = float(input("Enter maximum rating: "))
+ low = float(input("⭐ Enter minimum rating: "))
+ high = float(input("⭐ Enter maximum rating: "))
  sol = df.loc[(df["Rating"] >= low) & (df["Rating"] <= high)]
  if not sol.empty:
-    print(sol)
+    print("✅ Movie Found:\n",sol)
  else:
-    print("No movies found in this range")
+    print("❌ No movies found in this range")
 
 
 def main():
  while True:
-  user_input=str(input("Which method to find the movie by: Year/Genre/Rating/Name(or 'Exit' for quit)--> ")).lower()
+  user_input=str(input("🔍 Which method to find the movie by: Year/Genre/Rating/Name(or 'Exit' for quit)--> ")).lower()
   if(user_input == 'year'):
    sam3()
   elif(user_input == 'genre'):
@@ -49,11 +49,14 @@ def main():
   elif(user_input == 'rating'):
    sam4()
   elif(user_input == 'exit'):
-     print("Exiting program...")
+     print("👋 Exiting program...Goodbye!")
      break
   else:
-   print("Please Select A proper Method to Find Movie!!")
+   print("⚠️  Please Select A proper Method to Find Movie!!")
 main()
+
+
+
 
 
 
